@@ -1,12 +1,12 @@
 import os
 import glob
-from datetime import datetime  # <- [NUEVO] Importamos el modulo de tiempo
+from datetime import datetime
 from openpyxl import load_workbook, Workbook
 from openpyxl.styles import PatternFill
 
 # === CONFIGURACION GENERAL ===
 TIENDAS = ['CrazyFamily', 'OfertasImper', 'Abizi', 'Moisess']
-CARPETA_SALIDA = '.- Archivos maestros'
+CARPETA_SALIDA = '- LISTO'
 
 def limpiar_texto(v):
     if v is None or str(v).strip() == "" or str(v).lower() == "nan":
@@ -172,7 +172,7 @@ def consolidar_listados():
         except Exception as e:
             print(f"  [x] ERROR al procesar '{tienda}': {e}")
 
-    print("\n[*] Guardando archivo maestro...")
+    print("\n[*] Guardando archivo...")
     try:
         wb_out.save(ruta_archivo_final)
         print(f"[OK] EXITO! Se consolidaron {total_registros_procesados} productos en total.")
